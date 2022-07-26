@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 import org.junit.jupiter.api.Test;
 
-import br.com.alura.tdd.modelo.Funcionario;
+import br.com.alura.tdd.modelo.Functionary;
 import br.com.alura.tdd.service.BonusService;
 
 public class BonusServiceTest {
@@ -15,7 +15,7 @@ public class BonusServiceTest {
     void zeroFunctionaryWithHighSalary(){
         BonusService bonusService = new BonusService();
 
-        BigDecimal bonus = bonusService.calcularBonus(new Funcionario("Marcelo", LocalDate.now(), new BigDecimal("25000")));
+        BigDecimal bonus = bonusService.calcularBonus(new Functionary("Marcelo", LocalDate.now(), new BigDecimal("25000")));
 
         assertEquals(new BigDecimal("0.00"), bonus);
     }
@@ -24,7 +24,7 @@ public class BonusServiceTest {
     void tenPercentFunctionarySalary(){
         BonusService bonusService = new BonusService();
 
-        BigDecimal bonus = bonusService.calcularBonus(new Funcionario("Marcelo", LocalDate.now(), new BigDecimal("2500")));
+        BigDecimal bonus = bonusService.calcularBonus(new Functionary("Marcelo", LocalDate.now(), new BigDecimal("2500")));
 
         assertEquals(new BigDecimal("250.00"), bonus);
     }
@@ -33,7 +33,7 @@ public class BonusServiceTest {
     void bonusTenPercentTenThousandSalary(){
         BonusService bonusService = new BonusService();
 
-        BigDecimal bonus = bonusService.calcularBonus(new Funcionario("Marcelo", LocalDate.now(), new BigDecimal("10000")));
+        BigDecimal bonus = bonusService.calcularBonus(new Functionary("Marcelo", LocalDate.now(), new BigDecimal("10000")));
 
         assertEquals(new BigDecimal("1000.00"), bonus);
     }

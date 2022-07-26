@@ -7,11 +7,11 @@ import br.com.alura.tdd.modelo.Functionary;
 
 public class BonusService {
 
-	public BigDecimal calcularBonus(Functionary funcionario) {
+	public BigDecimal calculateBonus(Functionary funcionario) {
 		BigDecimal valor = funcionario.getSalary().multiply(new BigDecimal("0.1"));
 
 		if (valor.compareTo(new BigDecimal("1000")) > 0) {
-			valor = BigDecimal.ZERO;
+			throw new IllegalArgumentException("Funcionario com salario maior do que R$10000 nao pode receber bonus!");
 		}
 
 		return valor.setScale(2, RoundingMode.HALF_UP);

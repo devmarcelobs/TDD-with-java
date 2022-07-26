@@ -41,6 +41,12 @@ public class Functionary {
 	}
 
 	public void salaryReadjustment(BigDecimal readjustment) {
-		this.salary = this.salary.add(readjustment).setScale(2, RoundingMode.HALF_UP);
+		this.salary = this.salary.add(readjustment);
+
+		roundSalary();
+	}
+
+	private void roundSalary() {
+		this.salary = this.salary.setScale(2, RoundingMode.HALF_UP);
 	}
 }
